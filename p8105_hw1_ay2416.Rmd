@@ -1,0 +1,8 @@
+---
+title: "Homework 1"
+author: Amin Yakubu
+date: 09-15-2018
+output: github_document
+---
+
+
