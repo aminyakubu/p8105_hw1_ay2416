@@ -24,7 +24,7 @@ sample_df = tibble(
 ```
 
 
-#### Taking means
+### Taking means
 
 Here, we will try to take means of number variable, random_num, and of logical vector, vec_logical.
 
@@ -52,7 +52,7 @@ mean(sample_df$vec_factor)
 We also get an output saying `r mean(sample_df$vec_factor)` which means not available with a warning message as well. This also is because we cannot calculate the means of factor strings. 
 
 
-#### Variable conversions 
+### Variable conversions 1
 
 ```{r conversion, results='hide'}
 
@@ -69,7 +69,7 @@ However, conversion of character variables doesn't work properly as we will expe
 
 On the other hand, factor variables are properly converted into numeric. R assigns numeric values to the factors in alphabetical order. Thefore, in our case fruit is assigned a value of 1 and vegetable is assigned 2. 
 
-#### Conversion of character variable from character to factor to numeric
+### Conversion of character variable from character to factor to numeric
 
 ```{r multiple_convert}
 
@@ -80,11 +80,13 @@ char_to_numeric = as.numeric(fact_to_char)
 
 ```
 
-We see that it is possible to convert from character to factor then to numeric. R assigns numbers to the factors in alphabetical order. Although, it is possible to convert factor to character, attempts to convert character to numeric introduces NAs by coercion. 
+We see that it is possible to convert from character to factor then to numeric. R assigns numbers to the factors in alphabetical order. 
+
+Although, it is possible to convert factor to character, attempts to convert character to numeric introduces NAs by coercion. 
 
 ##Problem 2
 
-#### Creating a data frame with 5 variables
+### Creating a data frame with 5 variables
 
 ```{r random_sampling}
 
@@ -101,7 +103,7 @@ random_sample = tibble(
 
 We have a dataset size of `r nrow(random_sample)`. Variable x has a mean of `r mean(random_sample$x)` and a median value of `r median(random_sample$x)`. The proportion of cases for which the logical vector is TRUE is `r (sum(random_sample$logical_vector)/nrow(random_sample))`. 
 
-#### Scatter plots 
+### Scatter plots 
 
 ```{r creating_plots}
 library(ggplot2)
@@ -119,6 +121,6 @@ ggsave("scatter_plot1.pdf", plot = scatter_plot1, height = 4, width = 6)
 
 ```
 
-We see that when color by variables, R assigns the same color to the same values of the variable for factor and numeric variables. For example, for scatter_plot1, FALSE is assigned one color and TRUE is assigned another. For numeric variables, R uses a heat map. When the color grade changes gradually within the range of the values, in this case 0 to 1. However, we see just 2 colors because we have just 0 or 1. 
+We see that when we color by variables, R assigns the same color to the same values of the variable for factor and logical variables. For example, for scatter_plot1, FALSE is assigned one color and TRUE is assigned another. For numeric variables, R uses a heat map color style. The color grade changes gradually within a range of the values, in this case 0 to 1. However, we see just 2 colors because we have just 0 or 1. 
 
 
